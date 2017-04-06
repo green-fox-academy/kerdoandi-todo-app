@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskList {
-  private static String filepath = "tasks.txt";
+  public static String filepath = "tasks.txt";
   List<Task> taskList;
 
   public TaskList() {
@@ -19,16 +19,18 @@ public class TaskList {
 
   public void toListContent() {
     if (taskList.size() > 1) {
+      int counter = 0;
       for (Task task : taskList) {
-        System.out.println("[ ] " + task.getDescription() + "\n");
+        counter++;
+        System.out.println(counter + " - " + "[ ] " + task.getDescription());
       }
     } else {
         System.out.println("No todos for today! :)");
     }
   }
 
-  public void splitLines(List<String> rawlines) {
-    for (String s : rawlines) {
+  public void splitLines(List<String> lines) {
+    for (String s : lines) {
       String[] splittedList = s.split(Task.TASK_SPLITTER);
       String taskDescript = splittedList[0];
       String taskStatus;
@@ -41,11 +43,12 @@ public class TaskList {
     }
   }
 
-  public void readAddToTaskList(String filepath) {
+  public void readAddToTaskList() {
     List<String> rawLines = new ArrayList<>();
     try {
       Path path = Paths.get(filepath);
       rawLines = Files.readAllLines(path);
+      splitLines(rawLines);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -59,5 +62,7 @@ public class TaskList {
     }
     return result;
   }
+
+  
 }
 
