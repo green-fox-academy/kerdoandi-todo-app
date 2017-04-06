@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -7,12 +8,12 @@ import java.util.List;
 
 public class Tasks {
 
-  List<String> taskList = new ArrayList<>();
-  private static final String FILEPATH = "tasks.txt";
+  static List<String> taskList = new ArrayList<>();
+  private static String filepath = "tasks.txt";
 
 
   public Tasks() {
-    taskList = readAllLinesFromFile(FILEPATH);
+    taskList = readAllLinesFromFile(filepath);
    }
 
 
@@ -21,13 +22,27 @@ public class Tasks {
     if (taskList.size() > 1) {
       int counter = 0;
       String description = "";
-      for (int i = 0; i < 3; i++) {
+      for (int i = 0; i < taskList.size(); i++) {
         counter++;
         description += counter + " - " + taskList.get(i) + "\n";
       }
       return description;
     } else {
       return "No todos for today! :)";
+    }
+  }
+
+  void addTask(String newTask) {
+    taskList.add(newTask);
+    writeToFile(taskList);
+  }
+
+  private static void writeToFile(List<String> data) {
+    Path path = Paths.get(filepath);
+    try {
+      Files.write(path, taskList);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 

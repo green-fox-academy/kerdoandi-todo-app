@@ -1,9 +1,9 @@
+import java.util.Scanner;
+
 public class ToDoApp {
   public static void main(String[] args) {
 
-
     if (args.length == 0) {
-
     System.out.println("Python Todo application\n" +
             "=======================\n" +
             "\n" +
@@ -19,6 +19,12 @@ public class ToDoApp {
 
     if (args[0].equals("-l") && args.length == 1) {
       System.out.println(tasks.toString());
+    }
+
+    
+    if (args[0].equals("-a") && args.length == 2) {
+      String newDescription = args[1];
+      tasks.addTask(newDescription);
     }
   }
 }
