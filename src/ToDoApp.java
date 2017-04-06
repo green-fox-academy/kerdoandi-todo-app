@@ -1,17 +1,8 @@
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Created by Andi on 4/6/2017.
- */
 public class ToDoApp {
   public static void main(String[] args) {
 
 
+    if (args.length == 0) {
 
     System.out.println("Python Todo application\n" +
             "=======================\n" +
@@ -21,18 +12,16 @@ public class ToDoApp {
             " -a   Adds a new task\n" +
             " -r   Removes an task\n" +
             " -c   Completes an task\n");
-
-    if (args[0].equals("-l")) {
-      int counter = 0;
-      for (int i = 0; i <)
+    }
 
 
+    Tasks tasks = new Tasks();
+
+    if (args[0].equals("-l") && args.length == 1) {
+      System.out.println(tasks.toString());
     }
   }
-
-
-
-
 }
+
 
 
