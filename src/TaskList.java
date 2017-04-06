@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -63,6 +65,25 @@ public class TaskList {
     return result;
   }
 
-  
+  private static void writeToFile(List<String> data) {
+    Path path = Paths.get(filepath);
+    try {
+      Files.write(path, data);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void overwriteFile() {
+    try {
+      File file = new File(filepath);
+      FileWriter fileWriter = new FileWriter(file);
+      fileWriter.write(this.toString());
+      fileWriter.flush();
+      fileWriter.close();
+    } catch (IOException e) {
+      System.out.println("unable to update the file");
+    }
+  }
 }
 
