@@ -1,8 +1,4 @@
 Walk the dog%%undone
-%%undone
-Buy milk%%undone
-%%undone
+Buy milk%%done
 Do homework%%undone
-%%undone
-Feed the monkey%%undone
-%%undone
+Feed the monkey%%done

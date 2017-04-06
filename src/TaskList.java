@@ -19,12 +19,20 @@ public class TaskList {
     taskList.add(task);
   }
 
+  public Task getTask(int i){
+    return taskList.get(i);
+  }
+
   public void toListContent() {
     if (taskList.size() > 1) {
       int counter = 0;
       for (Task task : taskList) {
         counter++;
-        System.out.println(counter + " - " + "[ ] " + task.getDescription());
+        if (task.getStatus().equals("done")) {
+          System.out.println(counter + " - " + "[X] " + task.getDescription());
+        } else {
+          System.out.println(counter + " - " + "[ ] " + task.getDescription());
+        }
       }
     } else {
         System.out.println("No todos for today! :)");

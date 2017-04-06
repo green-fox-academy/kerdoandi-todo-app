@@ -12,8 +12,8 @@ public class Task {
     return this.status;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setStatusDone() {
+    this.status = "done";
   }
 
   public String getDescription() {
