@@ -11,7 +11,7 @@ import java.util.List;
 public class ToDoApp {
   public static void main(String[] args) {
 
-    String filepath = "tasks.csv";
+
 
     System.out.println("Python Todo application\n" +
             "=======================\n" +
@@ -22,22 +22,17 @@ public class ToDoApp {
             " -r   Removes an task\n" +
             " -c   Completes an task\n");
 
+    if (args[0].equals("-l")) {
+      int counter = 0;
+      for (int i = 0; i <)
 
-    System.out.println(readAllLinesFromFile(filepath));
 
-  }
-
-
-  public static List<String> readAllLinesFromFile(String filepath) {
-
-    List<String> tasksListFromFile = new ArrayList<>();
-    try {
-      Path path = Paths.get(filepath);
-      tasksListFromFile = Files.readAllLines(path);
-    } catch (IOException e) {
-      e.printStackTrace();
     }
-    return tasksListFromFile;
   }
+
+
+
+
 }
+
 
