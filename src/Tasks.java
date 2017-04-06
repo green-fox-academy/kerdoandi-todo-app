@@ -18,13 +18,17 @@ public class Tasks {
 
   @Override
   public String toString() {
-    int counter = 0;
-    String description = "";
-    for (int i = 0; i < 3; i++) {
-      counter++;
-      description += counter + " - " + taskList.get(i) + "\n";
+    if (taskList.size() > 1) {
+      int counter = 0;
+      String description = "";
+      for (int i = 0; i < 3; i++) {
+        counter++;
+        description += counter + " - " + taskList.get(i) + "\n";
+      }
+      return description;
+    } else {
+      return "No todos for today! :)";
     }
-    return description;
   }
 
 
