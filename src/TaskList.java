@@ -1,8 +1,12 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TaskList {
-  static List<Task> taskList;
+  List<Task> taskList;
 
   public TaskList() {
     taskList = new ArrayList<>();
@@ -22,25 +26,30 @@ public class TaskList {
     }
   }
 
-  @Override
-  public String toString() {
-    String result = "";
-
-    for (Task t : taskList) {
-      result += t.toString() + "\n";
+  public void splitLines(List<String> rawlines) {
+    for (String s : rawlines) {
+      String[] splittedList = s.split("%%");
+      String taskDescript = splittedList[0];
+      String taskStatus;
+      if (splittedList.length > 1) {
+        taskStatus = splittedList[1];
+      } else {
+        taskStatus = "undone";
+      }
+      taskList.add(new Task(taskDescript, taskStatus));
     }
-
-    return result;
   }
 
-  public List<String> toFile() {
-    List<String> result = new ArrayList<>();
+  public void readAddToTaskList(String filepath) {
+    List<String> rawLines = new ArrayList<>();
+    try {
+      Path path = Paths.get(filepath);
+      rawLines = Files.readAllLines(path);
 
-    for (Task t : taskList) {
-      result.add(t.toFile());
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
     }
-    return result;
   }
-
 }
 
