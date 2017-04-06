@@ -4,14 +4,14 @@ public class ToDoApp {
   public static void main(String[] args) {
 
     if (args.length == 0) {
-    System.out.println("Python Todo application\n" +
-            "=======================\n" +
-            "\n" +
-            "Command line arguments:\n" +
-            " -l   Lists all the tasks\n" +
-            " -a   Adds a new task\n" +
-            " -r   Removes an task\n" +
-            " -c   Completes an task\n");
+      System.out.println("Python Todo application\n" +
+              "=======================\n" +
+              "\n" +
+              "Command line arguments:\n" +
+              " -l   Lists all the tasks\n" +
+              " -a   Adds a new task\n" +
+              " -r   Removes an task\n" +
+              " -c   Completes an task\n");
     }
 
 
@@ -21,13 +21,16 @@ public class ToDoApp {
       System.out.println(tasks.toString());
     }
 
-    
-    if (args[0].equals("-a") && args.length == 2) {
+
+    if (args[0].equals("-a") && args.length != 2) {
+      System.out.println("Unable to add: no task provided");
+    } else {
       String newDescription = args[1];
       tasks.addTask(newDescription);
     }
   }
 }
+
 
 
 
