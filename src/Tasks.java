@@ -12,20 +12,20 @@ public class Tasks {
 
   List<String> taskList = new ArrayList<>();
   private static final String FILEPATH = "tasks.txt";
-  String descripton;
-  String status;
 
 
-  public Tasks(String descripton, String status) {
-    this.descripton = descripton;
-    this.status = status;
+  public Tasks() {
     taskList = readAllLinesFromFile(FILEPATH);
-  }
+   }
 
 
   @Override
   public String toString() {
-    return "[ ] -" + descripton + ", " + status;
+    String description = "";
+    for (int i = 0; i < 3; i++) {
+      description += "- " + taskList.get(i) + "\n";
+    }
+    return description;
   }
 
 
@@ -40,6 +40,5 @@ public class Tasks {
     }
     return tasksListFromFile;
   }
-
 }
 
