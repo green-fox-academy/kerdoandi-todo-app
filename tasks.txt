@@ -1,4 +1,3 @@
 Walk the dog%%undone
-Buy milk%%done
 Do homework%%undone
-Feed the monkey%%done
+Shopping%%done

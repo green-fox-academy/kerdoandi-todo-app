@@ -14,7 +14,9 @@ public class ToDoApp {
     } else if (args[0].equals("-a") && args.length != 2) {
       System.out.println("Unable to add: no task provided");
     } else if (args[0].equals("-c") && args.length == 2) {
-      taskList.getTask(Integer.valueOf(args[1])-1).setStatusDone();
+      taskList.getTask(Integer.valueOf(args[1]) - 1).setStatusDone();
+    } else if (args[0].equals("-r") && args.length == 2) {
+      taskList.removeTask(Integer.valueOf(args[1]) - 1);
     }
     taskList.overwriteFile();
   }

@@ -19,8 +19,12 @@ public class TaskList {
     taskList.add(task);
   }
 
-  public Task getTask(int i){
+  public Task getTask(int i) {
     return taskList.get(i);
+  }
+
+  public void removeTask(int i) {
+    taskList.remove(i);
   }
 
   public void toListContent() {
