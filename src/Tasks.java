@@ -5,9 +5,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Andi on 4/6/2017.
- */
 public class Tasks {
 
   List<String> taskList = new ArrayList<>();
@@ -21,9 +18,11 @@ public class Tasks {
 
   @Override
   public String toString() {
+    int counter = 0;
     String description = "";
     for (int i = 0; i < 3; i++) {
-      description += "- " + taskList.get(i) + "\n";
+      counter++;
+      description += counter + " - " + taskList.get(i) + "\n";
     }
     return description;
   }
