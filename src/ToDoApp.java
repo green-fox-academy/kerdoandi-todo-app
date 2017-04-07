@@ -16,11 +16,13 @@ public class ToDoApp {
       taskList.toListContent();
     } else if (args[0].equals("-a") && args.length == 2) {
       taskList.addTask(new Task(args[1],"undone"));
+      taskList.toListContent();
     } else if (args[0].equals("-a") && args.length != 2) {
       System.out.println("Unable to add: no task provided");
     } else if (args[0].equals("-c") && args.length == 2) {
       try {
         taskList.getTask(Integer.valueOf(args[1]) - 1).setStatusDone();
+        taskList.toListContent();
       } catch (IndexOutOfBoundsException e) {
         System.out.println("Unable to check: index is out of bound");
       } catch (NumberFormatException n) {
@@ -29,6 +31,7 @@ public class ToDoApp {
     } else if (args[0].equals("-r") && args.length == 2) {
       try {
         taskList.removeTask(Integer.parseInt(args[1]) - 1);
+        taskList.toListContent();
       } catch (IndexOutOfBoundsException e) {
         System.out.println("Unable to remove: index is out of bound");
       } catch (NumberFormatException n) {
