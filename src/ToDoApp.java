@@ -19,9 +19,21 @@ public class ToDoApp {
     } else if (args[0].equals("-a") && args.length != 2) {
       System.out.println("Unable to add: no task provided");
     } else if (args[0].equals("-c") && args.length == 2) {
-      taskList.getTask(Integer.valueOf(args[1]) - 1).setStatusDone();
+      try {
+        taskList.getTask(Integer.valueOf(args[1]) - 1).setStatusDone();
+      } catch (IndexOutOfBoundsException e) {
+        System.out.println("Unable to check: index is out of bound");
+      } catch (NumberFormatException n) {
+        System.out.println("Unable to check: index is not a number");
+      }
     } else if (args[0].equals("-r") && args.length == 2) {
-      taskList.removeTask(Integer.parseInt(args[1]) - 1);
+      try {
+        taskList.removeTask(Integer.parseInt(args[1]) - 1);
+      } catch (IndexOutOfBoundsException e) {
+        System.out.println("Unable to remove: index is out of bound");
+      } catch (NumberFormatException n) {
+        System.out.println("Unable to remove: index is not a number");
+      }
     } else if (!argList.equals(args[0])) {
       System.out.println("Unsupported argument");
     }

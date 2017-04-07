@@ -1,4 +1,3 @@
 Walk the dog%%undone
-Buy milk%%undone
 Walk dog%%undone
 Shopping%%undone
