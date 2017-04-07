@@ -28,7 +28,7 @@ public class TaskList {
   }
 
   public void toListContent() {
-    if (taskList.size() > 1) {
+    if (taskList.size() >= 1) {
       int counter = 0;
       for (Task task : taskList) {
         counter++;
@@ -40,6 +40,25 @@ public class TaskList {
       }
     } else {
         System.out.println("No todos for today! :)");
+    }
+  }
+
+  public void toListUndoneTask() {
+    List<Task> undoneTasks = new ArrayList<>();
+    if (taskList.size() >= 1) {
+      int counter = 0;
+      for (Task task : taskList) {
+        counter++;
+        if (task.getStatus().equals("undone")) {
+          undoneTasks.add(task);
+        }
+      }
+      for (Task undonetask : undoneTasks) {
+        counter = 0;
+        System.out.println(counter + " - " + "[ ] " + undonetask.getDescription());
+      }
+    } else {
+      System.out.println("No todos for today! :)");
     }
   }
 
