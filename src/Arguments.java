@@ -23,6 +23,11 @@ public class Arguments {
   public void addArgs(String newArg) {
     argList.add(newArg);
   }
+
+  @Override
+  public String toString() {
+    return "argList: " + argList;
+  }
 }
 
 

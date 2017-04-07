@@ -43,7 +43,6 @@ public class ToDoApp {
     } else if (!argList.equals(args[0])) {
       System.out.println("Unsupported argument");
     }
-
     taskList.overwriteFile();
   }
 }
