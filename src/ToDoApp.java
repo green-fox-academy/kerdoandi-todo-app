@@ -21,10 +21,11 @@ public class ToDoApp {
     } else if (args[0].equals("-c") && args.length == 2) {
       taskList.getTask(Integer.valueOf(args[1]) - 1).setStatusDone();
     } else if (args[0].equals("-r") && args.length == 2) {
-      taskList.removeTask(Integer.valueOf(args[1]) - 1);
-    } else if (!args[0].equals(argList)) {
+      taskList.removeTask(Integer.parseInt(args[1]) - 1);
+    } else if (!argList.equals(args[0])) {
       System.out.println("Unsupported argument");
     }
+
     taskList.overwriteFile();
   }
 }

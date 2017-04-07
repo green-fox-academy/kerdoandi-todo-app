@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Created by Andi on 4/7/2017.
  */
-private class Arguments {
+public class Arguments {
   List<String> argList;
 
 

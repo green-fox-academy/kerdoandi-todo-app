@@ -1,3 +1,4 @@
 Walk the dog%%undone
-Feed the monkey%%done
-jdbsgjsbg%%undone
+Buy milk%%undone
+Walk dog%%undone
+Shopping%%undone

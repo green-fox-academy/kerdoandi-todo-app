@@ -24,7 +24,13 @@ public class TaskList {
   }
 
   public void removeTask(int i) {
-    taskList.remove(i);
+    try {
+      taskList.remove(i);
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("Unable to remove: index is out of bound");
+    } catch (NumberFormatException n) {
+      System.out.println("Unable to remove: index is not a number");
+    }
   }
 
   public void toListContent() {
