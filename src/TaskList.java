@@ -8,26 +8,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskList {
-  public static String filepath = "tasks.txt";
-  List<Task> taskList;
+  private static String filepath = "tasks.txt";
+  private List<Task> taskList;
 
-  public TaskList() {
+  TaskList() {
     taskList = new ArrayList<>();
    }
 
-  public void addTask(Task task) {
+  void addTask(Task task) {
     taskList.add(task);
   }
 
-  public Task getTask(int i) {
+  Task getTask(int i) {
     return taskList.get(i);
   }
 
-  public void removeTask(int i) {
+  void removeTask(int i) {
     taskList.remove(i);
   }
 
-  public void toListContent() {
+  void toListContent() {
     if (taskList.size() >= 1) {
       int counter = 0;
       for (Task task : taskList) {
@@ -43,7 +43,7 @@ public class TaskList {
     }
   }
 
-  public void toListUndoneTask() {
+  void toListUndoneTask() {
     List<Task> undoneTasks = new ArrayList<>();
     if (taskList.size() >= 1) {
       int counter = 0;
@@ -62,7 +62,7 @@ public class TaskList {
     }
   }
 
-  public void splitLines(List<String> lines) {
+  private void splitLines(List<String> lines) {
     for (String s : lines) {
       String[] splittedList = s.split(Task.TASK_SPLITTER);
       String taskDescript = splittedList[0];
@@ -76,7 +76,7 @@ public class TaskList {
     }
   }
 
-  public void readAddToTaskList() {
+  void readAddToTaskList() {
     List<String> rawLines = new ArrayList<>();
     try {
       Path path = Paths.get(filepath);
@@ -105,7 +105,7 @@ public class TaskList {
     }
   }
 
-  public void overwriteFile() {
+  void overwriteFile() {
     try {
       File file = new File(filepath);
       FileWriter fileWriter = new FileWriter(file);

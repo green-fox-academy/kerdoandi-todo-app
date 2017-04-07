@@ -1,22 +1,22 @@
 public class Task {
   private String description;
   private String status;
-  public static final String TASK_SPLITTER = "%%";
+  static final String TASK_SPLITTER = "%%";
 
-  public Task(String description, String status) {
+  Task(String description, String status) {
     this.description = description;
     this.status = status;
   }
 
-  public String getStatus() {
+  String getStatus() {
     return this.status;
   }
 
-  public void setStatusDone() {
+  void setStatusDone() {
     this.status = "done";
   }
 
-  public String getDescription() {
+  String getDescription() {
     return description;
   }
 
