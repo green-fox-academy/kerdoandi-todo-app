@@ -1,3 +1,4 @@
 Buy milk%%undone
 Walk the dog%%done
-Feed the monkey%%undone
+Feed the monkey%%done
+Feed the dog%%undone

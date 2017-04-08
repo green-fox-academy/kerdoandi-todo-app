@@ -11,6 +11,7 @@ public class TaskList {
   private static String filepath = "tasks.txt";
   private List<Task> taskList;
 
+
   TaskList() {
     taskList = new ArrayList<>();
    }
@@ -43,24 +44,31 @@ public class TaskList {
     }
   }
 
-  void toListUndoneTask() {
-    List<Task> undoneTasks = new ArrayList<>();
-    if (taskList.size() >= 1) {
-      int counter = 0;
-      for (Task task : taskList) {
-        counter++;
-        if (task.getStatus().equals("undone")) {
-          undoneTasks.add(task);
-        }
-      }
-      for (Task undonetask : undoneTasks) {
-        counter = 0;
-        System.out.println(counter + " - " + "[ ] " + undonetask.getDescription());
-      }
-    } else {
-      System.out.println("No todos for today! :)");
-    }
-  }
+ public List<Task> getUndoneTask() {
+   List<Task> undoneTasks = new ArrayList<>();
+   if (taskList.size() > 0) {
+     int counter = 0;
+     for (Task task : taskList) {
+       counter++;
+       if (task.getStatus().equals("undone")) {
+         undoneTasks.add(task);
+       }
+     }
+   }
+   return undoneTasks;
+ }
+
+ void toListUndoneTask() {
+   if (getUndoneTask().size() > 0) {
+     int counter = 0;
+     for (Task undonetask : getUndoneTask()) {
+       counter++;
+       System.out.println(counter + " - " + "[ ] " + undonetask.getDescription());
+     }
+   } else {
+     System.out.println("No todos for today! :)");
+   }
+ }
 
   private void splitLines(List<String> lines) {
     for (String s : lines) {
